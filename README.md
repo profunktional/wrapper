@@ -19,6 +19,7 @@ Usage: wrapper [OPTION]...
   -M, --m3u8-port=INT       (default=`20020')
   -P, --proxy=STRING        (default=`')
   -L, --login=STRING        (username:password)
+  -F, --code-from-file      (default=off)
 ```
 
 # Special thanks
