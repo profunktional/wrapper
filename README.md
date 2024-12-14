@@ -10,11 +10,12 @@ Or you can refer to the Actions configuration file for compilation.
 
 # Docker
 Currently only available on x86_64.
-```
-Build image: docker build --tag wrapper .
-Login: docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 -e args="-L username:password -F" wrapper
-Run: docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 wrapper
-```
+
+Build image: `docker build --tag wrapper .`
+
+Login: `docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 -e args="-L username:password -F -H 0.0.0.0" wrapper`
+
+Run: `docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 -e args="-H 0.0.0.0" wrapper`
 
 # Usage
 ```
