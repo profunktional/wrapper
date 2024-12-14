@@ -8,6 +8,14 @@ Get the pre-built version from this project's Actions.
 
 Or you can refer to the Actions configuration file for compilation.
 
+# Docker
+Currently only available on x86_64.
+```
+Build image: docker build --tag wrapper .
+Login: docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 -e args="-L username:password -F" wrapper
+Run: docker run -v ./rootfs/data:/app/rootfs/data -p 10020:10020 wrapper
+```
+
 # Usage
 ```
 Usage: wrapper [OPTION]...
