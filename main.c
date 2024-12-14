@@ -100,7 +100,7 @@ static void credentialHandler(struct shared_ptr *credReqHandler,
                     FILE *fp = fopen("/data/2fa.txt", "r");
                     fscanf(fp, "%6s", amPassword + passLen);
                     remove("/data/2fa.txt");
-                    fprintf(stderr, "[!] Code file detected! Logging in...");
+                    fprintf(stderr, "[!] Code file detected! Logging in...\n");
                     break;
                 } else {
                     sleep(3);
