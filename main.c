@@ -86,21 +86,21 @@ static void credentialHandler(struct shared_ptr *credReqHandler,
 
     if (need2FA) {
         if (args_info.code_from_file_flag) {
-            printf("[!] Enter your 2FA code into rootfs/data/code.txt\n");
-            printf("[!] Example command: echo -n 114514 > rootfs/data/2fa.txt\n");
-            printf("[!] Waiting for input...\n");
+            fprintf(stderr, "[!] Enter your 2FA code into rootfs/data/code.txt\n");
+            fprintf(stderr, "[!] Example command: echo -n 114514 > rootfs/data/2fa.txt\n");
+            fprintf(stderr, "[!] Waiting for input...\n");
             int count = 0;
             while (1)
             {
                 if (count >= 20) {
-                    printf("[!] Failed to get 2FA Code in 60s. Exiting...\n");
+                    fprintf(stderr, "[!] Failed to get 2FA Code in 60s. Exiting...\n");
                     exit(0);
                 }
                 if (file_exists("/data/2fa.txt")) {
                     FILE *fp = fopen("/data/2fa.txt", "r");
                     fscanf(fp, "%6s", amPassword + passLen);
                     remove("/data/2fa.txt");
-                    printf("[!] Code file detected! Logging in...");
+                    fprintf(stderr, "[!] Code file detected! Logging in...");
                     break;
                 } else {
                     sleep(3);
